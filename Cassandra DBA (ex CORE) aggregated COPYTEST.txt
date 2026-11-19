@@ -1896,7 +1896,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "avg(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintstimedout:count\",environment=\"$env\", job=\"cassandra\"}) > 0.001)",
+              "expr": "avg(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintstimedout:count\",environment=\"$env\", job=\"cassandra\"}[1m]) > 0.001)",
               "legendFormat": "avg",
               "range": true,
               "refId": "avg"
@@ -1907,7 +1907,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "max(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintstimedout:count\",environment=\"$env\", job=\"cassandra\"}) > 0.001)",
+              "expr": "max(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintstimedout:count\",environment=\"$env\", job=\"cassandra\"}[1m]) > 0.001)",
               "instant": false,
               "legendFormat": "top",
               "range": true,
@@ -1919,7 +1919,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "min(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintstimedout:count\",environment=\"$env\", job=\"cassandra\"}) > 0.001)",
+              "expr": "min(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintstimedout:count\",environment=\"$env\", job=\"cassandra\"}[1m]) > 0.001)",
               "instant": false,
               "legendFormat": "low",
               "range": true,
@@ -1931,7 +1931,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintstimedout:count\",environment=\"$env\", job=\"cassandra\"}) > 0.001)",
+              "expr": "sum(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintstimedout:count\",environment=\"$env\", job=\"cassandra\"}[1m]) > 0.001)",
               "hide": true,
               "instant": false,
               "legendFormat": "sum",
@@ -2182,7 +2182,7 @@
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "avg(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintssucceeded:count\", environment=\"$env\", job=\"cassandra\"})) > 0.001",
+              "expr": "avg(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintssucceeded:count\", environment=\"$env\", job=\"cassandra\"}[1m])) > 0.001",
               "legendFormat": "avg",
               "range": true,
               "refId": "avg"
@@ -2193,7 +2193,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "max(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintssucceeded:count\", environment=\"$env\", job=\"cassandra\"})) > 0.001",
+              "expr": "max(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintssucceeded:count\", environment=\"$env\", job=\"cassandra\"}[1m])) > 0.001",
               "instant": false,
               "legendFormat": "top",
               "range": true,
@@ -2205,7 +2205,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "min(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintssucceeded:count\", environment=\"$env\", job=\"cassandra\"})) > 0.001",
+              "expr": "min(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintssucceeded:count\", environment=\"$env\", job=\"cassandra\"}[1m])) > 0.001",
               "instant": false,
               "legendFormat": "low",
               "range": true,
@@ -2217,7 +2217,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintssucceeded:count\", environment=\"$env\", job=\"cassandra\"})) > 0.001",
+              "expr": "sum(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintssucceeded:count\", environment=\"$env\", job=\"cassandra\"}[1m])) > 0.001",
               "hide": true,
               "instant": false,
               "legendFormat": "sum",
@@ -2459,7 +2459,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "avg(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintsfailed:count\",environment=\"$env\", job=\"cassandra\"})) > 0.001",
+              "expr": "avg(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintsfailed:count\",environment=\"$env\", job=\"cassandra\"}[1m])) > 0.001",
               "legendFormat": "avg",
               "range": true,
               "refId": "avg"
@@ -2470,7 +2470,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "max(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintsfailed:count\",environment=\"$env\", job=\"cassandra\"})) > 0.001",
+              "expr": "max(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintsfailed:count\",environment=\"$env\", job=\"cassandra\"}[1m])) > 0.001",
               "instant": false,
               "legendFormat": "top",
               "range": true,
@@ -2482,7 +2482,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "min(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintsfailed:count\",environment=\"$env\", job=\"cassandra\"})) > 0.001",
+              "expr": "min(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintsfailed:count\",environment=\"$env\", job=\"cassandra\"}[1m])) > 0.001",
               "instant": false,
               "legendFormat": "low",
               "range": true,
@@ -2494,7 +2494,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintsfailed:count\",environment=\"$env\", job=\"cassandra\"})) > 0.001",
+              "expr": "sum(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintsfailed:count\",environment=\"$env\", job=\"cassandra\"}[1m])) > 0.001",
               "hide": true,
               "instant": false,
               "legendFormat": "sum",
@@ -2503,6 +2503,145 @@
             }
           ],
           "title": "HintsFailed Minute",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "description": "Number of hints attemping to be sent currently.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 1,
+                "pointSize": 1,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 4514
+          },
+          "id": 161,
+          "options": {
+            "legend": {
+              "calcs": [
+                "lastNotNull",
+                "min",
+                "max",
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "12.0.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "avg(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:storage:totalhints:count\", environment=\"$env\", job=\"cassandra\"}[5m])) > 0.001",
+              "legendFormat": "avg",
+              "range": true,
+              "refId": "avg"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "max(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:storage:totalhints:count\", environment=\"$env\", job=\"cassandra\"}[5m])) > 0.001",
+              "legendFormat": "top",
+              "range": true,
+              "refId": "top"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "min(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:storage:totalhints:count\", environment=\"$env\", job=\"cassandra\"}[5m])) > 0.001",
+              "legendFormat": "low",
+              "range": true,
+              "refId": "low"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "sum(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:storage:totalhints:count\", environment=\"$env\", job=\"cassandra\"}[5m])) > 0.001",
+              "hide": true,
+              "legendFormat": "sum",
+              "range": true,
+              "refId": "sum"
+            }
+          ],
+          "title": "Total Hints",
           "type": "timeseries"
         }
       ],
