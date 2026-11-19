@@ -552,7 +552,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum(cassandra_stats{cluster=~\"$cluster\",datacenter=~\"$datacenter\",instance=~\"$instance\",job=~\".*\",name=\"org:apache:cassandra:metrics:client:connectednativeclients:value\"}) by (instance)",
+              "expr": "sum(cassandra_stats{cluster=~\"$cluster\",datacenter=~\"$datacenter\",instance=~\"$instance\",environment=\"$env\",job=~\".*\",name=\"org:apache:cassandra:metrics:client:connectednativeclients:value\"}) by (instance)",
               "legendFormat": "{{ instance }}",
               "range": true,
               "refId": "A"
@@ -658,7 +658,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "label_replace(label_replace(sum(cassandra_stats{cluster=~\"$cluster\",datacenter=~\"$datacenter\",instance=~\"$instance\",job=~\".*\",name=~\"org:apache:cassandra:metrics:clientrequest:(write|read)-.*:latency:$percentiles\"}) by(instance, name), \"percentiles\", \"$1\",  \"name\", \".*:(.*?)$\"), \"wrc\", \"$1 : $2\", \"name\", \"org:apache:cassandra:metrics:clientrequest:(write|read)-?(.*):latency.*\")",
+              "expr": "label_replace(label_replace(sum(cassandra_stats{cluster=~\"$cluster\",datacenter=~\"$datacenter\",instance=~\"$instance\",environment=\"$env\",job=~\".*\",name=~\"org:apache:cassandra:metrics:clientrequest:(write|read)-.*:latency:$percentiles\"}) by(instance, name), \"percentiles\", \"$1\",  \"name\", \".*:(.*?)$\"), \"wrc\", \"$1 : $2\", \"name\", \"org:apache:cassandra:metrics:clientrequest:(write|read)-?(.*):latency.*\")",
               "legendFormat": "{{ instance }} : {{wrc}} : {{ percentiles }} ",
               "range": true,
               "refId": "A"
@@ -764,7 +764,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "label_replace(label_replace(sum(rate(cassandra_stats{cluster=~\"$cluster\",datacenter=~\"$datacenter\",instance=~\"$instance\",job=~\".*\",name=~\"org:apache:cassandra:metrics:clientrequest:(write|read)-.*:latency:count\"})[1m]) by(instance, name), \"percentiles\", \"$1\",  \"name\", \".*:(.*?)$\"), \"wrc\", \"$1 : $2\", \"name\", \"org:apache:cassandra:metrics:clientrequest:(write|read)-?(.*):latency.*\")",
+              "expr": "label_replace(label_replace(sum(rate(cassandra_stats{cluster=~\"$cluster\",datacenter=~\"$datacenter\",instance=~\"$instance\",environment=\"$env\",job=~\".*\",name=~\"org:apache:cassandra:metrics:clientrequest:(write|read)-.*:latency:count\"})[1m]) by(instance, name), \"percentiles\", \"$1\",  \"name\", \".*:(.*?)$\"), \"wrc\", \"$1 : $2\", \"name\", \"org:apache:cassandra:metrics:clientrequest:(write|read)-?(.*):latency.*\")",
               "legendFormat": "{{ instance }} : {{wrc}} : {{ percentiles }} ",
               "range": true,
               "refId": "A"
@@ -3708,7 +3708,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "cassandra_stats{name=\"java:lang:memory:heapmemoryusage:max\", cluster=\"$cluster\", datacenter=\"$datacenter\", instance=~\"$instance\"}",
+              "expr": "cassandra_stats{name=\"java:lang:memory:heapmemoryusage:max\", cluster=\"$cluster\", datacenter=~\"$datacenter\", instance=~\"$instance\", environment=\"$env\"}",
               "interval": "",
               "legendFormat": "{{ instance }}, max",
               "refId": "A"
@@ -5191,7 +5191,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "avg(max(cassandra_stats{datacenter=~\"$datacenter\", cluster=~\"$cluster\", table=~\"$table\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:percentrepaired:value\"}) by (instance, keyspace, table))",
+              "expr": "avg(max(cassandra_stats{datacenter=~\"$datacenter\", cluster=~\"$cluster\", table=~\"$table\", instance=~\"$instance\", environment=\"$env\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:percentrepaired:value\"}) by (instance, keyspace, table))",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 5,
@@ -5281,7 +5281,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "min(max(cassandra_stats{datacenter=~\"$datacenter\", cluster=~\"$cluster\", table=~\"$table\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:percentrepaired:value\"}) by (instance, keyspace, table))",
+              "expr": "min(max(cassandra_stats{datacenter=~\"$datacenter\", cluster=~\"$cluster\", table=~\"$table\", instance=~\"$instance\", environment=\"$env\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:percentrepaired:value\"}) by (instance, keyspace, table))",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 5,
@@ -5771,7 +5771,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", instance=~\"$instance\",name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:livediskspaceused.+\"}) by (instance, keyspace, table)",
+              "expr": "sum(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", instance=~\"$instance\",environment=\"$env\",name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:livediskspaceused.+\"}) by (instance, keyspace, table)",
               "format": "time_series",
               "hide": true,
               "instant": false,
@@ -5785,7 +5785,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "sum(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:snapshotssize:value\"}) by (instance, keyspace, table)",
+              "expr": "sum(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", environment=\"$env\", table=~\"$table\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:snapshotssize:value\"}) by (instance, keyspace, table)",
               "interval": "",
               "intervalFactor": 4,
               "legendFormat": "{{ instance }} : {{ keyspace }} : {{ table }}, Snapshot",
@@ -5796,7 +5796,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "expr": "sum(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:bloomfilterdiskspaceused:value\"}) by (instance, keyspace, table)",
+              "expr": "sum(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", environment=\"$env\", table=~\"$table\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:bloomfilterdiskspaceused:value\"}) by (instance, keyspace, table)",
               "interval": "",
               "intervalFactor": 4,
               "legendFormat": "{{ instance }} : {{ keyspace }} : {{ table }}, Bloom",
@@ -5880,7 +5880,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum(cassandra_stats{datacenter=~\"$datacenter\", cluster=~\"$cluster\", table=~\"$table\",  instance=~\"$instance\",name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:livediskspaceused.+\"})",
+              "expr": "sum(cassandra_stats{datacenter=~\"$datacenter\", cluster=~\"$cluster\", table=~\"$table\",  instance=~\"$instance\",environment=\"$env\",name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:livediskspaceused.+\"})",
               "format": "time_series",
               "hide": true,
               "instant": false,
@@ -5895,7 +5895,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum(cassandra_stats{datacenter=~\"$datacenter\", cluster=~\"$cluster\", table=~\"$table\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:snapshotssize:value\"})",
+              "expr": "sum(cassandra_stats{datacenter=~\"$datacenter\", cluster=~\"$cluster\", table=~\"$table\", instance=~\"$instance\", environment=\"$env\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:snapshotssize:value\"})",
               "interval": "",
               "intervalFactor": 1,
               "legendFormat": "Snapshot",
@@ -5908,7 +5908,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum(cassandra_stats{datacenter=~\"$datacenter\", cluster=~\"$cluster\", table=~\"$table\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:bloomfilterdiskspaceused:value\"})",
+              "expr": "sum(cassandra_stats{datacenter=~\"$datacenter\", cluster=~\"$cluster\", table=~\"$table\", instance=~\"$instance\", environment=\"$env\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:bloomfilterdiskspaceused:value\"})",
               "interval": "",
               "intervalFactor": 1,
               "legendFormat": "Bloom",
@@ -7030,7 +7030,7 @@
                 "uid": "aU9ARriGk"
               },
               "editorMode": "code",
-              "expr": "label_replace(sum(increase(cassandra_stats{cluster=\"$cluster\",name=~\"org:apache:cassandra:metrics:droppedmessage:.*:dropped:count\",environment=\"$env\",instance=~\"$instance\"}[5m]) >= 0) by (instance, name),\"short_name\",\"$1\",\"name\",\".*droppedmessage:(.*):dropped.*\")",
+              "expr": "label_replace(sum(increase(cassandra_stats{cluster=\"$cluster\",datacenter=~\"$datacenter\",name=~\"org:apache:cassandra:metrics:droppedmessage:.*:dropped:count\",environment=\"$env\",instance=~\"$instance\"}[5m]) >= 0) by (instance, name),\"short_name\",\"$1\",\"name\",\".*droppedmessage:(.*):dropped.*\")",
               "instant": false,
               "legendFormat": "{{instance}} : {{short_name}}",
               "range": true,
@@ -7482,7 +7482,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "label_replace(sum(increase(cassandra_stats{cluster=\"$cluster\",name=~\"org:apache:cassandra:metrics:clientrequest:.*:timeouts:count\",environment=\"$env\",instance=~\"$instance\"})[5m]) by (name, short_name, instance),\"short_name\",\"$1\",\"name\",\".*clientrequest:(.*):timeouts.*\") > 0.01",
+              "expr": "label_replace(sum(increase(cassandra_stats{cluster=\"$cluster\",datacenter=~\"$datacenter\",name=~\"org:apache:cassandra:metrics:clientrequest:.*:timeouts:count\",environment=\"$env\",instance=~\"$instance\"})[5m]) by (name, short_name, instance),\"short_name\",\"$1\",\"name\",\".*clientrequest:(.*):timeouts.*\") > 0.01",
               "instant": false,
               "legendFormat": "{{instance}} : {{short_name}}",
               "range": true,
@@ -8052,7 +8052,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "label_replace(sum(cassandra_stats{cluster=\"$cluster\",name=~\"org:apache:cassandra:metrics:threadpools:[^#]*:pendingtasks:value\",environment=\"$env\",instance=~\"$instance\"}) by (name, instance),\"short_name\",\"$1\",\"name\",\".*threadpools:(.*):pendingtasks.*\")",
+              "expr": "label_replace(sum(cassandra_stats{cluster=\"$cluster\",datacenter=~\"$datacenter\",name=~\"org:apache:cassandra:metrics:threadpools:[^#]*:pendingtasks:value\",environment=\"$env\",instance=~\"$instance\"}) by (name, instance),\"short_name\",\"$1\",\"name\",\".*threadpools:(.*):pendingtasks.*\")",
               "instant": false,
               "legendFormat": "{{instance}} : {{short_name}}",
               "range": true,
@@ -8614,13 +8614,13 @@
           "type": "prometheus",
           "uid": "${datasource}"
         },
-        "definition": "query_result(max(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", instance=~\"$instance\", environment=~\"$env\"}) by (keyspace))",
+        "definition": "query_result(max(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", instance=~\"$instance\", environment=\"$env\"}) by (keyspace))",
         "includeAll": true,
         "multi": true,
         "name": "keyspace",
         "options": [],
         "query": {
-          "query": "query_result(max(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", instance=~\"$instance\", environment=~\"$env\"}) by (keyspace))",
+          "query": "query_result(max(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", instance=~\"$instance\", environment=\"$env\"}) by (keyspace))",
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
@@ -8638,13 +8638,13 @@
           "type": "prometheus",
           "uid": "${datasource}"
         },
-        "definition": "query_result(max(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", keyspace=~\"$keyspace\",  instance=~\"$instance\"}) by (table))",
+        "definition": "query_result(max(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", keyspace=~\"$keyspace\", instance=~\"$instance\", environment=\"$env\"}) by (table))",
         "includeAll": true,
         "multi": true,
         "name": "table",
         "options": [],
         "query": {
-          "query": "query_result(max(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", keyspace=~\"$keyspace\",  instance=~\"$instance\"}) by (table))",
+          "query": "query_result(max(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", keyspace=~\"$keyspace\", instance=~\"$instance\", environment=\"$env\"}) by (table))",
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
