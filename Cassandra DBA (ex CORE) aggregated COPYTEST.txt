@@ -1896,7 +1896,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "avg(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintstimedout:count\",environment=\"$env\", job=\"cassandra\"}[1m]) > 0.001)",
+              "expr": "avg(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintstimedout:count\",environment=\"$env\", job=\"cassandra\"}[1m])) > 0.001",
               "legendFormat": "avg",
               "range": true,
               "refId": "avg"
@@ -1907,7 +1907,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "max(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintstimedout:count\",environment=\"$env\", job=\"cassandra\"}[1m]) > 0.001)",
+              "expr": "max(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintstimedout:count\",environment=\"$env\", job=\"cassandra\"}[1m])) > 0.001",
               "instant": false,
               "legendFormat": "top",
               "range": true,
@@ -1919,7 +1919,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "min(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintstimedout:count\",environment=\"$env\", job=\"cassandra\"}[1m]) > 0.001)",
+              "expr": "min(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintstimedout:count\",environment=\"$env\", job=\"cassandra\"}[1m])) > 0.001",
               "instant": false,
               "legendFormat": "low",
               "range": true,
@@ -1931,7 +1931,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintstimedout:count\",environment=\"$env\", job=\"cassandra\"}[1m]) > 0.001)",
+              "expr": "sum(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=\"org:apache:cassandra:metrics:hintsservice:hintstimedout:count\",environment=\"$env\", job=\"cassandra\"}[1m])) > 0.001",
               "hide": true,
               "instant": false,
               "legendFormat": "sum",
