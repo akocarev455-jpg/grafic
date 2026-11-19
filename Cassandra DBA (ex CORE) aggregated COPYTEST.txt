@@ -3201,7 +3201,7 @@
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "avg(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:readlatency:count\", job=\"cassandra\", environment=\"$env\"})) by (cluster, datacenter, keyspace, table) > 0.001",
+              "expr": "avg(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:readlatency:count\", job=\"cassandra\", environment=\"$env\"}[1m])) by (cluster, datacenter, keyspace, table) > 0.001",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -3215,7 +3215,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "max(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:readlatency:count\", job=\"cassandra\", environment=\"$env\"})) by (cluster, datacenter, keyspace, table) > 0.001",
+              "expr": "max(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:readlatency:count\", job=\"cassandra\", environment=\"$env\"}[1m])) by (cluster, datacenter, keyspace, table) > 0.001",
               "instant": false,
               "legendFormat": "top - {{ keyspace }} : {{ table }}",
               "range": true,
@@ -3227,7 +3227,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "min(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:readlatency:count\", job=\"cassandra\", environment=\"$env\"})) by (cluster, datacenter, keyspace, table) > 0.001",
+              "expr": "min(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:readlatency:count\", job=\"cassandra\", environment=\"$env\"}[1m])) by (cluster, datacenter, keyspace, table) > 0.001",
               "instant": false,
               "legendFormat": "min - {{ keyspace }} : {{ table }}",
               "range": true,
@@ -3239,7 +3239,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:readlatency:count\", job=\"cassandra\", environment=\"$env\"})) by (cluster, datacenter, keyspace, table) > 0.001",
+              "expr": "sum(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:readlatency:count\", job=\"cassandra\", environment=\"$env\"}[1m])) by (cluster, datacenter, keyspace, table) > 0.001",
               "hide": true,
               "instant": false,
               "legendFormat": "sum - {{ keyspace }} : {{ table }}",
@@ -3350,7 +3350,7 @@
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "avg(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=\"\", keyspace=\"\", \r\nname=\"org:apache:cassandra:metrics:table:livescannedhistogram:count\", \r\njob=\"cassandra\", environment=\"$env\"})[1m]) by (cluster, datacenter, name) > 0",
+              "expr": "avg(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=\"\", keyspace=\"\", \r\nname=\"org:apache:cassandra:metrics:table:livescannedhistogram:count\", \r\njob=\"cassandra\", environment=\"$env\"}[1m])) by (cluster, datacenter, name) > 0",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -3364,7 +3364,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "max(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=\"\", keyspace=\"\", \r\nname=\"org:apache:cassandra:metrics:table:livescannedhistogram:count\", \r\njob=\"cassandra\", environment=\"$env\"})[1m]) by (cluster, datacenter, name) > 0",
+              "expr": "max(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=\"\", keyspace=\"\", \r\nname=\"org:apache:cassandra:metrics:table:livescannedhistogram:count\", \r\njob=\"cassandra\", environment=\"$env\"}[1m])) by (cluster, datacenter, name) > 0",
               "instant": false,
               "legendFormat": "top",
               "range": true,
@@ -3376,7 +3376,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "min(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=\"\", keyspace=\"\", \r\nname=\"org:apache:cassandra:metrics:table:livescannedhistogram:count\", \r\njob=\"cassandra\", environment=\"$env\"})[1m]) by (cluster, datacenter, name) > 0",
+              "expr": "min(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=\"\", keyspace=\"\", \r\nname=\"org:apache:cassandra:metrics:table:livescannedhistogram:count\", \r\njob=\"cassandra\", environment=\"$env\"}[1m])) by (cluster, datacenter, name) > 0",
               "instant": false,
               "legendFormat": "low",
               "range": true,
@@ -3388,7 +3388,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=\"\", keyspace=\"\", \r\nname=\"org:apache:cassandra:metrics:table:livescannedhistogram:count\", \r\njob=\"cassandra\", environment=\"$env\"})[1m]) by (cluster, datacenter, name) > 0",
+              "expr": "sum(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=\"\", keyspace=\"\", \r\nname=\"org:apache:cassandra:metrics:table:livescannedhistogram:count\", \r\njob=\"cassandra\", environment=\"$env\"}[1m])) by (cluster, datacenter, name) > 0",
               "instant": false,
               "legendFormat": "sum",
               "range": true,
@@ -3498,7 +3498,7 @@
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "avg(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:readrepairrequests:count\", job=\"cassandra\", environment=\"$env\"})) by (keyspace, table) > 0.001",
+              "expr": "avg(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:readrepairrequests:count\", job=\"cassandra\", environment=\"$env\"}[1m])) by (keyspace, table) > 0.001",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -3512,7 +3512,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "max(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:readrepairrequests:count\", job=\"cassandra\", environment=\"$env\"})) by (keyspace, table) > 0.001",
+              "expr": "max(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:readrepairrequests:count\", job=\"cassandra\", environment=\"$env\"}[1m])) by (keyspace, table) > 0.001",
               "instant": false,
               "legendFormat": "top - {{ keyspace }} : {{ table }}",
               "range": true,
@@ -3524,7 +3524,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "min(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:readrepairrequests:count\", job=\"cassandra\", environment=\"$env\"})) by (keyspace, table) > 0.001",
+              "expr": "min(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:readrepairrequests:count\", job=\"cassandra\", environment=\"$env\"}[1m])) by (keyspace, table) > 0.001",
               "instant": false,
               "legendFormat": "low - {{ keyspace }} : {{ table }}",
               "range": true,
@@ -3536,7 +3536,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum(increase(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:readrepairrequests:count\", job=\"cassandra\", environment=\"$env\"})) by (keyspace, table) > 0.001",
+              "expr": "sum(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:readrepairrequests:count\", job=\"cassandra\", environment=\"$env\"}[1m])) by (keyspace, table) > 0.001",
               "instant": false,
               "legendFormat": "sum - {{ keyspace }} : {{ table }}",
               "range": true,
@@ -3646,7 +3646,7 @@
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "avg(rate(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:speculativeretries:count\", job=\"cassandra\", environment=\"$env\"}) > 0) by (cluster, datacenter, keyspace, table) > 0.001\r\n",
+              "expr": "avg(rate(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:speculativeretries:count\", job=\"cassandra\", environment=\"$env\"}[1m])) by (cluster, datacenter, keyspace, table) > 0.001\r\n",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -3660,7 +3660,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "max(rate(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:speculativeretries:count\", job=\"cassandra\", environment=\"$env\"}) > 0) by (cluster, datacenter, keyspace, table) > 0.001",
+              "expr": "max(rate(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:speculativeretries:count\", job=\"cassandra\", environment=\"$env\"}[1m])) by (cluster, datacenter, keyspace, table) > 0.001",
               "instant": false,
               "legendFormat": "top - {{ keyspace }} : {{ table }}",
               "range": true,
@@ -3672,7 +3672,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "min(rate(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:speculativeretries:count\", job=\"cassandra\", environment=\"$env\"}) > 0) by (cluster, datacenter, keyspace, table) > 0.001",
+              "expr": "min(rate(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:speculativeretries:count\", job=\"cassandra\", environment=\"$env\"}[1m])) by (cluster, datacenter, keyspace, table) > 0.001",
               "instant": false,
               "legendFormat": "min - {{ keyspace }} : {{ table }}",
               "range": true,
@@ -3684,7 +3684,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "sum(rate(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:speculativeretries:count\", job=\"cassandra\", environment=\"$env\"}) > 0) by (cluster, datacenter, keyspace, table) > 0.001",
+              "expr": "sum(rate(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:speculativeretries:count\", job=\"cassandra\", environment=\"$env\"}[1m])) by (cluster, datacenter, keyspace, table) > 0.001",
               "hide": true,
               "instant": false,
               "legendFormat": "sum - {{ keyspace }} : {{ table }}",
@@ -3827,19 +3827,6 @@
               "legendFormat": "low - {{ keyspace }} : {{ table }}",
               "range": true,
               "refId": "low"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${datasource}"
-              },
-              "editorMode": "code",
-              "expr": "sum(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:sstablesperreadhistogram:$percentiles\", job=\"cassandra\", environment=\"$env\"}) by (cluster, datacenter, keyspace, table) > 0.001",
-              "hide": true,
-              "instant": false,
-              "legendFormat": "sum - {{ keyspace }} : {{ table }}",
-              "range": true,
-              "refId": "sum"
             }
           ],
           "title": "Count SSTables per Read",
