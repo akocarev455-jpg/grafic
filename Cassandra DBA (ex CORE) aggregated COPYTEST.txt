@@ -6808,10 +6808,10 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "label_replace({__name__ =~\"io_cassandrareaper_service_SegmentRunner_repairing.*$cluster.*\",job=\"reaper\",quantile=\"0.5\"}, \"cassandra_ip\", \"$1.$2.$3.$4-$6\", \"__name__\", \".*_(\\\\d+)x(\\\\d+)x(\\\\d+)x(\\\\d+)_(\\\\w+)_(\\\\w+)\")",
+              "expr": "io_cassandrareaper_service_SegmentRunner_repairing{cluster=~\"$cluster\",environment=\"DBA_PROD01\",job=\"cassandra-reaper\",quantile=\"0.5\"}",
               "format": "time_series",
               "intervalFactor": 2,
-              "legendFormat": "{{cassandra_ip}}",
+              "legendFormat": "{{keyspace}}",
               "range": true,
               "refId": "A"
             }
