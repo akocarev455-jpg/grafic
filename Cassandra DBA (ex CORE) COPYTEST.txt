@@ -762,7 +762,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "label_replace(label_replace(sum(rate(cassandra_stats{cluster=~\"$cluster\",datacenter=~\"$datacenter\",instance=~\"$instance\",job=~\".*\",name=~\"org:apache:cassandra:metrics:clientrequest:(write|read)-.*:latency:count\"})[1m]) by(instance, name), \"percentiles\", \"$1\",  \"name\", \".*:(.*?)$\"), \"wrc\", \"$1 : $2\", \"name\", \"org:apache:cassandra:metrics:clientrequest:(write|read)-?(.*):latency.*\")",
+              "expr": "label_replace(label_replace(sum(rate(cassandra_stats{cluster=~\"$cluster\",datacenter=~\"$datacenter\",instance=~\"$instance\",job=~\".*\",name=~\"org:apache:cassandra:metrics:clientrequest:(write|read)-.*:latency:count\"}[1m])) by(instance, name), \"percentiles\", \"$1\",  \"name\", \".*:(.*?)$\"), \"wrc\", \"$1 : $2\", \"name\", \"org:apache:cassandra:metrics:clientrequest:(write|read)-?(.*):latency.*\")",
               "legendFormat": "{{ instance }} : {{wrc}} : {{ percentiles }} ",
               "range": true,
               "refId": "A"
@@ -864,7 +864,7 @@
           "targets": [
             {
               "editorMode": "code",
-              "expr": "increase(label_replace(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:latency:$percentiles\", environment=\"$env\"}, \"percentiles\", \"$1\", \"name\", \".*:(.*?)$\")) > 0",
+              "expr": "label_replace(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:latency:$percentiles\", environment=\"$env\"}, \"percentiles\", \"$1\", \"name\", \".*:(.*?)$\") > 0",
               "legendFormat": "{{instance}}: {{percentiles}}",
               "range": true,
               "refId": "A"
@@ -966,7 +966,7 @@
           "targets": [
             {
               "editorMode": "code",
-              "expr": "increase(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:latency:count\",environment=\"$env\"}) > 0",
+              "expr": "rate(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:latency:count\",environment=\"$env\"}[1m]) > 0",
               "legendFormat": "{{instance}}",
               "range": true,
               "refId": "A"
@@ -1068,7 +1068,7 @@
           "targets": [
             {
               "editorMode": "code",
-              "expr": "increase(label_replace(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:.*:count\", name!~\"org:apache:cassandra:metrics:clientrequest:rangeslice:.*latency:count\", environment=\"$env\"}, \"metric\", \"$1\", \"name\", \".*:(.*?):count$\")) > 0",
+              "expr": "label_replace(increase(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:.*:count\", name!~\"org:apache:cassandra:metrics:clientrequest:rangeslice:.*latency:count\", environment=\"$env\"}[1m]), \"metric\", \"$1\", \"name\", \".*:(.*?):count$\") > 0",
               "legendFormat": "{{instance}}: {{metric}}",
               "range": true,
               "refId": "A"
@@ -2789,7 +2789,7 @@
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "sum(rate(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\",table=~\"$table\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:readrepairrequests:count\",environment=\"$env\"})) by (instance, keyspace, table)",
+              "expr": "sum(rate(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\",table=~\"$table\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:readrepairrequests:count\",environment=\"$env\"}[1m])) by (instance, keyspace, table)",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -3880,7 +3880,7 @@
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "increase(max(label_replace(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\",name=~\"java:lang:name=.*:garbagecollector:lastgcinfo:duration\", instance=~\"$instance\",environment=\"$env\"}, \"info\", \"$1\", \"name\", \"java:lang:name=(.+?):garbagecollector:lastgcinfo:duration\")) by (instance, info))[1m]",
+              "expr": "max(label_replace(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\",name=~\"java:lang:name=.*:garbagecollector:lastgcinfo:duration\", instance=~\"$instance\",environment=\"$env\"}, \"info\", \"$1\", \"name\", \"java:lang:name=(.+?):garbagecollector:lastgcinfo:duration\")) by (instance, info)",
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
@@ -3988,7 +3988,7 @@
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "irate(label_replace(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\",name=~\"java:lang:name=.*:garbagecollector:lastgcinfo:duration\", instance=~\"$instance\",environment=\"$env\"}, \"info\", \"$1\", \"name\", \"java:lang:name=(.+?):garbagecollector:lastgcinfo:duration\")[1m])",
+              "expr": "label_replace(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\",name=~\"java:lang:name=.*:garbagecollector:lastgcinfo:duration\", instance=~\"$instance\",environment=\"$env\"}, \"info\", \"$1\", \"name\", \"java:lang:name=(.+?):garbagecollector:lastgcinfo:duration\")",
               "interval": "",
               "legendFormat": "{{ instance }} ({{info}})",
               "range": true,
@@ -4678,7 +4678,7 @@
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "rate(sum(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:bloomfilterfalsepositives.value\",environment=\"$env\"}) by (instance, keyspace, table))",
+              "expr": "sum(rate(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:table:$keyspace:$table:bloomfilterfalsepositives.value\",environment=\"$env\"}[5m])) by (instance, keyspace, table)",
               "interval": "",
               "legendFormat": "{{ instance }} {{ keyspace }}:{{ table }}",
               "range": true,
@@ -4893,7 +4893,7 @@
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "sort_desc(sum(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:triememtable:$keyspace:$table:contention_timelatency:$percentiles\",environment=\"$env\"}) by (instance, keyspace, table))",
+              "expr": "sort_desc(max(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:triememtable:$keyspace:$table:contention_timelatency:$percentiles\",environment=\"$env\"}) by (instance, keyspace, table))",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -5001,7 +5001,7 @@
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "sort_desc(sum(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:triememtable:$keyspace:$table:contended_memtable_puts:count\",environment=\"$env\"}) by (instance, keyspace, table))",
+              "expr": "sort_desc(sum(rate(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", table=~\"$table\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:triememtable:$keyspace:$table:contended_memtable_puts:count\",environment=\"$env\"}[5m])) by (instance, keyspace, table))",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -5110,7 +5110,7 @@
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "sort_desc(sum(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:triememtable:$keyspace:$table:uncontended_memtable_puts:count\",environment=\"$env\"}) by (instance, keyspace, table))",
+              "expr": "sort_desc(sum(rate(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", instance=~\"$instance\", name=~\"org:apache:cassandra:metrics:triememtable:$keyspace:$table:uncontended_memtable_puts:count\",environment=\"$env\"}[5m])) by (instance, keyspace, table))",
               "format": "time_series",
               "instant": false,
               "interval": "",
@@ -7674,7 +7674,7 @@
                 "uid": "aU9ARriGk"
               },
               "editorMode": "code",
-              "expr": "label_replace(sum(increase(cassandra_stats{datacenter=\"$datacenter\",cluster=\"$cluster\",name=~\"org:apache:cassandra:metrics:clientrequest:.*:timeouts:count\"})[5m]) by (name),\"short_name\",\"$1\",\"name\",\".*clientrequest:(.*):timeouts.*\") > 0.01",
+              "expr": "label_replace(sum(increase(cassandra_stats{datacenter=\"$datacenter\",cluster=\"$cluster\",name=~\"org:apache:cassandra:metrics:clientrequest:.*:timeouts:count\"}[5m])) by (name),\"short_name\",\"$1\",\"name\",\".*clientrequest:(.*):timeouts.*\") > 0.01",
               "instant": false,
               "legendFormat": "{{short_name}}",
               "range": true,
@@ -8007,7 +8007,7 @@
                 "uid": "${datasource}"
               },
               "editorMode": "code",
-              "expr": "label_replace(sum(increase(cassandra_stats{cluster=\"$cluster\",name=~\"org:apache:cassandra:metrics:clientrequest:.*:timeouts:count\",environment=\"$env\",instance=~\"$instance\"})[5m]) by (name, short_name, instance),\"short_name\",\"$1\",\"name\",\".*clientrequest:(.*):timeouts.*\") > 0.01",
+              "expr": "label_replace(sum(increase(cassandra_stats{cluster=\"$cluster\",name=~\"org:apache:cassandra:metrics:clientrequest:.*:timeouts:count\",environment=\"$env\",instance=~\"$instance\"}[5m])) by (name, short_name, instance),\"short_name\",\"$1\",\"name\",\".*clientrequest:(.*):timeouts.*\") > 0.01",
               "instant": false,
               "legendFormat": "{{short_name}}:{{instance}}",
               "range": true,
@@ -8129,7 +8129,7 @@
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "sort_desc(increase(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\",name=~\"org:apache:cassandra:metrics:storageattachedindex:columnindexbuildsinprogress:value\", environment=\"$env\",instance=~\"$instance\"}[1m]))",
+              "expr": "sort_desc(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\",name=~\"org:apache:cassandra:metrics:storageattachedindex:columnindexbuildsinprogress:value\", environment=\"$env\",instance=~\"$instance\"})",
               "interval": "",
               "legendFormat": "{{ instance }}:{{keyspace}}:{{table}}",
               "range": true,
@@ -8236,7 +8236,7 @@
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "sort_desc(increase(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\",name=~\"org:apache:cassandra:metrics:storageattachedindex:segmentbufferspacelimitbytes:value\", environment=\"$env\",instance=~\"$instance\"}[1m]))",
+              "expr": "sort_desc(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\",name=~\"org:apache:cassandra:metrics:storageattachedindex:segmentbufferspacelimitbytes:value\", environment=\"$env\",instance=~\"$instance\"})",
               "interval": "",
               "legendFormat": "{{ instance }}",
               "range": true,
@@ -8344,7 +8344,7 @@
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "increase(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\",name=~\"org:apache:cassandra:metrics:storageattachedindex:(.*):(.*):indexgroupmetrics:openindexfiles:value\", environment=\"$env\",instance=~\"$instance\"}[1m])",
+              "expr": "cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\",name=~\"org:apache:cassandra:metrics:storageattachedindex:(.*):(.*):indexgroupmetrics:openindexfiles:value\", environment=\"$env\",instance=~\"$instance\"}",
               "interval": "",
               "legendFormat": "{{ instance }}:{{keyspace}}:{{table}}",
               "range": true,
