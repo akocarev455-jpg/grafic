@@ -9533,9 +9533,9 @@
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "label_replace(count(increase(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", keyspace=\"\", table=\"\", environment=\"$env\", job=\"cassandra\", name=~\"org:apache:cassandra:metrics:connection:.*:timeouts:count\"}[1m]) > 0) by (name), \"to\", \"$1\", \"name\", \"org:apache:cassandra:metrics:connection:(.*)_.*\")",
+              "expr": "sum(label_replace(increase(cassandra_stats{datacenter=~\"$datacenter\", cluster=\"$cluster\", keyspace=\"\", table=\"\", environment=\"$env\", job=\"cassandra\", name=~\"org:apache:cassandra:metrics:connection:.*:timeouts:count\"}[1m]), \"to\", \"$1\", \"name\", \"org:apache:cassandra:metrics:connection:(.*)_.*\")) by (to)",
               "interval": "",
-              "legendFormat": "{{ to }} <- others",
+              "legendFormat": "{{ to }} <- all nodes",
               "range": true,
               "refId": "value"
             }
