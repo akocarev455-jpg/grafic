@@ -627,7 +627,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 76
+            "y": 14
           },
           "id": 128,
           "options": {
@@ -733,7 +733,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 122
+            "y": 60
           },
           "id": 131,
           "options": {
@@ -839,7 +839,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 130
+            "y": 68
           },
           "id": 141,
           "options": {
@@ -941,7 +941,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 138
+            "y": 76
           },
           "id": 140,
           "options": {
@@ -1043,7 +1043,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 146
+            "y": 84
           },
           "id": 142,
           "options": {
@@ -1159,7 +1159,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 248
+            "y": 186
           },
           "id": 122,
           "options": {
@@ -1265,7 +1265,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 256
+            "y": 194
           },
           "id": 125,
           "options": {
@@ -1371,7 +1371,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 264
+            "y": 202
           },
           "id": 126,
           "options": {
@@ -1490,7 +1490,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 8
+            "y": 211
           },
           "id": 98,
           "options": {
@@ -1596,7 +1596,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 15
+            "y": 218
           },
           "id": 96,
           "options": {
@@ -1715,7 +1715,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 30
+            "y": 226
           },
           "id": 102,
           "options": {
@@ -1821,7 +1821,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 38
+            "y": 234
           },
           "id": 106,
           "options": {
@@ -1924,7 +1924,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 46
+            "y": 242
           },
           "id": 133,
           "options": {
@@ -2030,7 +2030,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 54
+            "y": 250
           },
           "id": 104,
           "options": {
@@ -2133,7 +2133,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 62
+            "y": 258
           },
           "id": 108,
           "options": {
@@ -2256,7 +2256,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 329
+            "y": 267
           },
           "id": 22,
           "options": {
@@ -2368,7 +2368,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 337
+            "y": 275
           },
           "id": 26,
           "options": {
@@ -2494,7 +2494,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 346
+            "y": 284
           },
           "id": 16,
           "options": {
@@ -2606,7 +2606,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 354
+            "y": 292
           },
           "id": 12,
           "options": {
@@ -2716,7 +2716,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 362
+            "y": 300
           },
           "id": 143,
           "options": {
@@ -2820,7 +2820,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 370
+            "y": 308
           },
           "id": 132,
           "options": {
@@ -2932,7 +2932,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 378
+            "y": 316
           },
           "id": 138,
           "options": {
@@ -3044,7 +3044,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 386
+            "y": 324
           },
           "id": 34,
           "options": {
@@ -3154,7 +3154,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 394
+            "y": 332
           },
           "id": 86,
           "options": {
@@ -3265,7 +3265,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 401
+            "y": 339
           },
           "id": 49,
           "options": {
@@ -3404,7 +3404,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 410
+            "y": 348
           },
           "id": 153,
           "options": {
@@ -3516,7 +3516,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 418
+            "y": 356
           },
           "id": 154,
           "options": {
@@ -3665,7 +3665,7 @@
             "h": 9,
             "w": 24,
             "x": 0,
-            "y": 427
+            "y": 365
           },
           "id": 8,
           "options": {
@@ -3784,7 +3784,7 @@
             "h": 9,
             "w": 24,
             "x": 0,
-            "y": 436
+            "y": 374
           },
           "id": 50,
           "interval": "60",
@@ -3895,7 +3895,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 445
+            "y": 383
           },
           "id": 88,
           "options": {
@@ -4003,7 +4003,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 452
+            "y": 390
           },
           "id": 92,
           "options": {
@@ -4108,7 +4108,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 460
+            "y": 398
           },
           "id": 94,
           "options": {
@@ -4232,7 +4232,7 @@
             "h": 5,
             "w": 24,
             "x": 0,
-            "y": 469
+            "y": 407
           },
           "id": 4,
           "options": {
@@ -4361,7 +4361,7 @@
             "h": 5,
             "w": 24,
             "x": 0,
-            "y": 474
+            "y": 412
           },
           "id": 47,
           "options": {
@@ -4471,7 +4471,7 @@
             "h": 6,
             "w": 24,
             "x": 0,
-            "y": 479
+            "y": 417
           },
           "id": 36,
           "options": {
@@ -4594,7 +4594,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 486
+            "y": 424
           },
           "id": 66,
           "options": {
@@ -4704,7 +4704,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 493
+            "y": 431
           },
           "id": 18,
           "options": {
@@ -4831,7 +4831,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 501
+            "y": 439
           },
           "id": 151,
           "options": {
@@ -4944,7 +4944,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 509
+            "y": 447
           },
           "id": 150,
           "options": {
@@ -5058,7 +5058,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 517
+            "y": 455
           },
           "id": 152,
           "options": {
@@ -5161,7 +5161,7 @@
             "h": 3,
             "w": 3,
             "x": 0,
-            "y": 487
+            "y": 425
           },
           "id": 28,
           "maxDataPoints": 100,
@@ -5252,7 +5252,7 @@
             "h": 3,
             "w": 3,
             "x": 3,
-            "y": 487
+            "y": 425
           },
           "id": 46,
           "maxDataPoints": 100,
@@ -5360,7 +5360,7 @@
             "h": 6,
             "w": 24,
             "x": 0,
-            "y": 490
+            "y": 428
           },
           "id": 37,
           "maxDataPoints": 100,
@@ -5473,7 +5473,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 496
+            "y": 434
           },
           "id": 30,
           "options": {
@@ -5581,7 +5581,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 503
+            "y": 441
           },
           "id": 110,
           "options": {
@@ -5727,7 +5727,7 @@
             "h": 5,
             "w": 21,
             "x": 0,
-            "y": 551
+            "y": 489
           },
           "id": 39,
           "options": {
@@ -5832,7 +5832,7 @@
             "h": 10,
             "w": 3,
             "x": 21,
-            "y": 551
+            "y": 489
           },
           "id": 43,
           "maxDataPoints": 1,
@@ -5986,7 +5986,7 @@
             "h": 5,
             "w": 21,
             "x": 0,
-            "y": 556
+            "y": 494
           },
           "id": 42,
           "options": {
@@ -6108,7 +6108,7 @@
             "h": 5,
             "w": 24,
             "x": 0,
-            "y": 562
+            "y": 500
           },
           "id": 84,
           "options": {
@@ -6216,7 +6216,7 @@
             "h": 5,
             "w": 24,
             "x": 0,
-            "y": 567
+            "y": 505
           },
           "id": 82,
           "options": {
@@ -6324,7 +6324,7 @@
             "h": 5,
             "w": 24,
             "x": 0,
-            "y": 572
+            "y": 510
           },
           "id": 80,
           "options": {
@@ -6432,7 +6432,7 @@
             "h": 5,
             "w": 24,
             "x": 0,
-            "y": 577
+            "y": 515
           },
           "id": 52,
           "options": {
@@ -6540,7 +6540,7 @@
             "h": 5,
             "w": 24,
             "x": 0,
-            "y": 582
+            "y": 520
           },
           "id": 56,
           "options": {
@@ -6648,7 +6648,7 @@
             "h": 5,
             "w": 24,
             "x": 0,
-            "y": 587
+            "y": 525
           },
           "id": 58,
           "options": {
@@ -6770,7 +6770,7 @@
             "h": 5,
             "w": 24,
             "x": 0,
-            "y": 490
+            "y": 428
           },
           "id": 62,
           "options": {
@@ -6878,7 +6878,7 @@
             "h": 5,
             "w": 24,
             "x": 0,
-            "y": 495
+            "y": 433
           },
           "id": 64,
           "options": {
@@ -6999,7 +6999,7 @@
             "h": 6,
             "w": 24,
             "x": 0,
-            "y": 604
+            "y": 542
           },
           "id": 147,
           "options": {
@@ -7105,7 +7105,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 610
+            "y": 548
           },
           "id": 68,
           "options": {
@@ -7223,7 +7223,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 618
+            "y": 556
           },
           "id": 74,
           "options": {
@@ -7330,7 +7330,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 625
+            "y": 563
           },
           "id": 72,
           "options": {
@@ -7451,7 +7451,7 @@
             "h": 6,
             "w": 24,
             "x": 0,
-            "y": 82
+            "y": 20
           },
           "id": 136,
           "options": {
@@ -7561,7 +7561,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 88
+            "y": 26
           },
           "id": 76,
           "options": {
@@ -7672,7 +7672,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 96
+            "y": 34
           },
           "id": 145,
           "options": {
@@ -7792,7 +7792,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 104
+            "y": 42
           },
           "id": 146,
           "options": {
@@ -7908,7 +7908,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 112
+            "y": 50
           },
           "id": 149,
           "options": {
@@ -7947,7 +7947,7 @@
       "type": "row"
     },
     {
-      "collapsed": false,
+      "collapsed": true,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -7955,115 +7955,116 @@
         "y": 20
       },
       "id": 135,
-      "panels": [],
-      "title": "Tpstats",
-      "type": "row"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "showValues": false,
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": 0
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 7,
-        "w": 24,
-        "x": 0,
-        "y": 21
-      },
-      "id": 134,
-      "options": {
-        "legend": {
-          "calcs": [
-            "lastNotNull",
-            "min",
-            "max",
-            "mean"
-          ],
-          "displayMode": "table",
-          "placement": "right",
-          "showLegend": true,
-          "sortBy": "Max",
-          "sortDesc": true
-        },
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "multi",
-          "sort": "desc"
-        }
-      },
-      "pluginVersion": "12.4.3",
-      "targets": [
+      "panels": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "editorMode": "code",
-          "expr": "label_replace(sum(cassandra_stats{cluster=\"$cluster\",name=~\"org:apache:cassandra:metrics:threadpools:[^#]*:pendingtasks:value\",environment=\"$env\",instance=~\"$instance\"}) by (name, instance),\"short_name\",\"$1\",\"name\",\".*threadpools:(.*):pendingtasks.*\")",
-          "instant": false,
-          "legendFormat": "{{instance}} : {{short_name}}",
-          "range": true,
-          "refId": "A"
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": 0
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 24,
+            "x": 0,
+            "y": 107
+          },
+          "id": 134,
+          "options": {
+            "legend": {
+              "calcs": [
+                "lastNotNull",
+                "min",
+                "max",
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "sortBy": "Max",
+              "sortDesc": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "label_replace(sum(cassandra_stats{cluster=\"$cluster\",name=~\"org:apache:cassandra:metrics:threadpools:[^#]*:pendingtasks:value\",environment=\"$env\",instance=~\"$instance\"}) by (name, instance),\"short_name\",\"$1\",\"name\",\".*threadpools:(.*):pendingtasks.*\")",
+              "instant": false,
+              "legendFormat": "{{instance}} : {{short_name}}",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "threadpools:PendingTasks",
+          "type": "timeseries"
         }
       ],
-      "title": "threadpools:PendingTasks",
-      "type": "timeseries"
+      "title": "Tpstats",
+      "type": "row"
     },
     {
       "collapsed": true,
@@ -8071,7 +8072,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 28
+        "y": 21
       },
       "id": 155,
       "panels": [
@@ -8143,7 +8144,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 681
+            "y": 619
           },
           "id": 156,
           "options": {
@@ -8253,7 +8254,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 689
+            "y": 627
           },
           "id": 157,
           "options": {
@@ -8364,7 +8365,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 697
+            "y": 635
           },
           "id": 158,
           "options": {
@@ -8601,8 +8602,8 @@
     ]
   },
   "time": {
-    "from": "now-30m",
-    "to": "now"
+    "from": "2026-10-30T11:45:25.779Z",
+    "to": "2026-10-30T14:45:25.779Z"
   },
   "timepicker": {},
   "timezone": "browser",
