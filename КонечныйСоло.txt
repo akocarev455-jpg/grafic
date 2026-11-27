@@ -433,7 +433,7 @@
             "uid": "${datasource}"
           },
           "editorMode": "code",
-          "expr": "cassandra_stats{cluster=~\"$cluster\",datacenter=~\"$datacenter\",instance=~\"$instance\",job=~\".*\",name=\"org:apache:cassandra:metrics:client:connectionpaused:count\",environment=\"$env\"}",
+          "expr": "sum(cassandra_stats{cluster=~\"$cluster\",datacenter=~\"$datacenter\",instance=~\".*\",job=~\".*\",name=\"org:apache:cassandra:metrics:client:connectionpaused:count\",environment=\"$env\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "",
@@ -8474,11 +8474,9 @@
       {
         "allValue": ".*",
         "current": {
-          "text": [
-            "cassami01.prod01.am.crpt.tech"
-          ],
+          "text": "All",
           "value": [
-            "cassami01.prod01.am.crpt.tech"
+            "$__all"
           ]
         },
         "datasource": {
@@ -8604,13 +8602,13 @@
     ]
   },
   "time": {
-    "from": "now-30m",
-    "to": "now"
+    "from": "2026-10-30T11:45:25.779Z",
+    "to": "2026-10-30T14:45:25.779Z"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Cassandra DBA (ex CORE)",
   "uid": "edwnxpwqg49a8f",
-  "version": 82,
+  "version": 83,
   "weekStart": ""
 }
