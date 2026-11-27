@@ -8611,6 +8611,6 @@
   "timezone": "browser",
   "title": "Cassandra DBA (ex CORE)",
   "uid": "edwnxpwqg49a8f",
-  "version": 80,
+  "version": 82,
   "weekStart": ""
 }
