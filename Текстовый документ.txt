@@ -9658,6 +9658,33 @@
         "allValue": ".*",
         "current": {
           "text": "All",
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${datasource}"
+        },
+        "definition": "query_result(max(cassandra_stats{name=\"java:lang:memory:heapmemoryusage:max\", cluster=\"$cluster\", datacenter=~\"$datacenter\", environment=\"$env\"}) by (instance))",
+        "includeAll": true,
+        "multi": true,
+        "name": "instance",
+        "options": [],
+        "query": {
+          "query": "query_result(max(cassandra_stats{name=\"java:lang:memory:heapmemoryusage:max\", cluster=\"$cluster\", datacenter=~\"$datacenter\", environment=\"$env\"}) by (instance))",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "/.*instance=\"([^\"]*).*/",
+        "regexApplyTo": "value",
+        "sort": 1,
+        "type": "query"
+      },
+      {
+        "allValue": ".*",
+        "current": {
+          "text": "All",
           "value": "$__all"
         },
         "datasource": {
