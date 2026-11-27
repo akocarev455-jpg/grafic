@@ -447,7 +447,7 @@
       "type": "gauge"
     },
     {
-      "collapsed": false,
+      "collapsed": true,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -455,874 +455,875 @@
         "y": 5
       },
       "id": 130,
-      "panels": [],
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": 0
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 6
+          },
+          "id": 127,
+          "options": {
+            "legend": {
+              "calcs": [
+                "lastNotNull",
+                "min",
+                "max",
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "sortBy": "Max",
+              "sortDesc": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "avg(cassandra_stats{cluster=\"$cluster\", datacenter=\"$datacenter\", name=\"org:apache:cassandra:metrics:client:connectednativeclients:value\", job=\"cassandra\", environment=\"$env\"}) by (cluster, datacenter) > 0.001",
+              "legendFormat": "avg",
+              "range": true,
+              "refId": "avg"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "max(cassandra_stats{cluster=\"$cluster\", datacenter=\"$datacenter\", name=\"org:apache:cassandra:metrics:client:connectednativeclients:value\", job=\"cassandra\", environment=\"$env\"}) by (cluster, datacenter) > 0.001",
+              "instant": false,
+              "legendFormat": "top",
+              "range": true,
+              "refId": "top"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "min(cassandra_stats{cluster=\"$cluster\", datacenter=\"$datacenter\", name=\"org:apache:cassandra:metrics:client:connectednativeclients:value\", job=\"cassandra\", environment=\"$env\"}) by (cluster, datacenter) > 0.001",
+              "instant": false,
+              "legendFormat": "low",
+              "range": true,
+              "refId": "low"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "sum(cassandra_stats{cluster=\"$cluster\", datacenter=\"$datacenter\", name=\"org:apache:cassandra:metrics:client:connectednativeclients:value\", job=\"cassandra\", environment=\"$env\"}) by (cluster, datacenter) > 0.001",
+              "hide": true,
+              "instant": false,
+              "legendFormat": "sum",
+              "range": true,
+              "refId": "sum"
+            }
+          ],
+          "title": "Native Connection",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": 0
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "µs"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 14
+          },
+          "id": 128,
+          "options": {
+            "legend": {
+              "calcs": [
+                "lastNotNull",
+                "min",
+                "max",
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "sortBy": "Max",
+              "sortDesc": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "label_replace(avg(cassandra_stats{cluster=\"$cluster\", datacenter=\"$datacenter\", name=~\"org:apache:cassandra:metrics:clientrequest:(write|read)-.*:latency:$percentiles\", job=\"cassandra\", environment=\"$env\"}) by(cluster, datacenter, name), \"wrc\", \"$1 : $2\", \"name\", \"org:apache:cassandra:metrics:clientrequest:(write|read)-?(.*):latency.*\") > 0.001",
+              "legendFormat": "avg - {{ wrc }} ",
+              "range": true,
+              "refId": "avg"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "label_replace(max(cassandra_stats{cluster=\"$cluster\", datacenter=\"$datacenter\", name=~\"org:apache:cassandra:metrics:clientrequest:(write|read)-.*:latency:$percentiles\", job=\"cassandra\", environment=\"$env\"}) by(cluster, datacenter, name), \"wrc\", \"$1 : $2\", \"name\", \"org:apache:cassandra:metrics:clientrequest:(write|read)-?(.*):latency.*\") > 0.001",
+              "instant": false,
+              "legendFormat": "top - {{ wrc }} ",
+              "range": true,
+              "refId": "top"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "label_replace(min(cassandra_stats{cluster=\"$cluster\", datacenter=\"$datacenter\", name=~\"org:apache:cassandra:metrics:clientrequest:(write|read)-.*:latency:$percentiles\", job=\"cassandra\", environment=\"$env\"}) by(cluster, datacenter, name), \"wrc\", \"$1 : $2\", \"name\", \"org:apache:cassandra:metrics:clientrequest:(write|read)-?(.*):latency.*\") > 0.001",
+              "instant": false,
+              "legendFormat": "low - {{ wrc }} ",
+              "range": true,
+              "refId": "low"
+            }
+          ],
+          "title": "Write/Read latency with consistency (client requests)",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": 0
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 22
+          },
+          "id": 131,
+          "interval": "30",
+          "maxDataPoints": 10000,
+          "options": {
+            "legend": {
+              "calcs": [
+                "lastNotNull",
+                "min",
+                "max",
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "sortBy": "Max",
+              "sortDesc": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "label_replace(avg(rate(cassandra_stats{cluster=\"$cluster\", datacenter=\"$datacenter\", name=~\"org:apache:cassandra:metrics:clientrequest:(write|read)-.*:latency:count\", job=\"cassandra\", environment=\"$env\"})[1m]) by(cluster, datacenter, name), \"wrc\", \"$1 : $2\", \"name\", \"org:apache:cassandra:metrics:clientrequest:(write|read)-?(.*):latency.*\") > 0.001",
+              "legendFormat": "avg - {{ wrc }} ",
+              "range": true,
+              "refId": "avg"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "label_replace(max(rate(cassandra_stats{cluster=\"$cluster\", datacenter=\"$datacenter\", name=~\"org:apache:cassandra:metrics:clientrequest:(write|read)-.*:latency:count\", job=\"cassandra\", environment=\"$env\"})[1m]) by(cluster, datacenter, name), \"wrc\", \"$1 : $2\", \"name\", \"org:apache:cassandra:metrics:clientrequest:(write|read)-?(.*):latency.*\") > 0.001",
+              "instant": false,
+              "legendFormat": "top - {{ wrc }} ",
+              "range": true,
+              "refId": "top"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "label_replace(min(rate(cassandra_stats{cluster=\"$cluster\", datacenter=\"$datacenter\", name=~\"org:apache:cassandra:metrics:clientrequest:(write|read)-.*:latency:count\", job=\"cassandra\", environment=\"$env\"})[1m]) by(cluster, datacenter, name), \"wrc\", \"$1 : $2\", \"name\", \"org:apache:cassandra:metrics:clientrequest:(write|read)-?(.*):latency.*\") > 0.001",
+              "instant": false,
+              "legendFormat": "low - {{ wrc }} ",
+              "range": true,
+              "refId": "low"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "label_replace(sum(rate(cassandra_stats{cluster=\"$cluster\", datacenter=\"$datacenter\", name=~\"org:apache:cassandra:metrics:clientrequest:(write|read)-.*:latency:count\", job=\"cassandra\", environment=\"$env\"})[1m]) by(cluster, datacenter, name), \"wrc\", \"$1 : $2\", \"name\", \"org:apache:cassandra:metrics:clientrequest:(write|read)-?(.*):latency.*\") > 0.001",
+              "hide": true,
+              "instant": false,
+              "legendFormat": "sum - {{ wrc }} ",
+              "range": true,
+              "refId": "sum"
+            }
+          ],
+          "title": "Write/Read count with consistency (client requests)",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "never",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "links": [],
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": 0
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "µs"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 30
+          },
+          "id": 141,
+          "options": {
+            "legend": {
+              "calcs": [
+                "lastNotNull",
+                "min",
+                "max",
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "sortBy": "Max",
+              "sortDesc": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "avg(increase(label_replace(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:latency:$percentiles\", job=\"cassandra\", environment=\"$env\"}, \"percentiles\", \"$1\", \"name\", \".*:(.*?)$\"))[1m]) by (cluster, datacenter, name, percentiles) > 0",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "intervalFactor": 5,
+              "legendFormat": "avg - {{percentiles}}",
+              "refId": "avg"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "max(increase(label_replace(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:latency:$percentiles\", job=\"cassandra\", environment=\"$env\"}, \"percentiles\", \"$1\", \"name\", \".*:(.*?)$\"))[1m]) by (cluster, datacenter, name, percentiles) > 0",
+              "instant": false,
+              "legendFormat": "top - {{percentiles}}",
+              "range": true,
+              "refId": "top"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "min(increase(label_replace(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:latency:$percentiles\", job=\"cassandra\", environment=\"$env\"}, \"percentiles\", \"$1\", \"name\", \".*:(.*?)$\"))[1m]) by (cluster, datacenter, name, percentiles) > 0",
+              "instant": false,
+              "legendFormat": "low - {{percentiles}}",
+              "range": true,
+              "refId": "low"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "sum(increase(label_replace(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:latency:$percentiles\", job=\"cassandra\", environment=\"$env\"}, \"percentiles\", \"$1\", \"name\", \".*:(.*?)$\"))[1m]) by (cluster, datacenter, name, percentiles) > 0",
+              "hide": true,
+              "instant": false,
+              "legendFormat": "sum - {{percentiles}}",
+              "range": true,
+              "refId": "sum"
+            }
+          ],
+          "title": "Read range letency (client requests)",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "log": 2,
+                  "type": "log"
+                },
+                "showPoints": "never",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "links": [],
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": 0
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 38
+          },
+          "id": 140,
+          "options": {
+            "legend": {
+              "calcs": [
+                "lastNotNull",
+                "min",
+                "max",
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "sortBy": "Max",
+              "sortDesc": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "avg(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:latency:count\", job=\"cassandra\", environment=\"$env\"})[1m]) by (cluster, datacenter, name) > 0",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "intervalFactor": 5,
+              "legendFormat": "avg",
+              "refId": "avg"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "max(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:latency:count\", job=\"cassandra\", environment=\"$env\"})[1m]) by (cluster, datacenter, name) > 0",
+              "instant": false,
+              "legendFormat": "top",
+              "range": true,
+              "refId": "top"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "min(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:latency:count\", job=\"cassandra\", environment=\"$env\"})[1m]) by (cluster, datacenter, name) > 0",
+              "instant": false,
+              "legendFormat": "low",
+              "range": true,
+              "refId": "low"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "sum(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:latency:count\", job=\"cassandra\", environment=\"$env\"})[1m]) by (cluster, datacenter, name) > 0",
+              "instant": false,
+              "legendFormat": "sum",
+              "range": true,
+              "refId": "sum"
+            }
+          ],
+          "title": "Read range count (client requests)",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "log": 2,
+                  "type": "log"
+                },
+                "showPoints": "never",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "links": [],
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": 0
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 24,
+            "x": 0,
+            "y": 46
+          },
+          "id": 142,
+          "options": {
+            "legend": {
+              "calcs": [
+                "lastNotNull",
+                "min",
+                "max",
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true,
+              "sortBy": "Max",
+              "sortDesc": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "multi",
+              "sort": "desc"
+            }
+          },
+          "pluginVersion": "12.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "avg(increase(label_replace(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", \r\nname=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:.*:count\", \r\nname!~\"org:apache:cassandra:metrics:clientrequest:rangeslice:.*latency:count\", \r\njob=\"cassandra\", environment=\"$env\"}, \"metric\", \"$1\", \"name\", \".*:(.*?):count$\"))[1m]) by (cluster, datacenter, metric) > 0",
+              "format": "time_series",
+              "instant": false,
+              "interval": "",
+              "intervalFactor": 5,
+              "legendFormat": "avg - {{metric}}",
+              "refId": "avg"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "max(increase(label_replace(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", \r\nname=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:.*:count\", \r\nname!~\"org:apache:cassandra:metrics:clientrequest:rangeslice:.*latency:count\", \r\njob=\"cassandra\", environment=\"$env\"}, \"metric\", \"$1\", \"name\", \".*:(.*?):count$\"))[1m]) by (cluster, datacenter, metric) > 0",
+              "instant": false,
+              "legendFormat": "top - {{metric}}",
+              "range": true,
+              "refId": "top"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "min(increase(label_replace(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", \r\nname=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:.*:count\", \r\nname!~\"org:apache:cassandra:metrics:clientrequest:rangeslice:.*latency:count\", \r\njob=\"cassandra\", environment=\"$env\"}, \"metric\", \"$1\", \"name\", \".*:(.*?):count$\"))[1m]) by (cluster, datacenter, metric) > 0",
+              "instant": false,
+              "legendFormat": "low - {{metric}}",
+              "range": true,
+              "refId": "low"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${datasource}"
+              },
+              "editorMode": "code",
+              "expr": "sum(increase(label_replace(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", \r\nname=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:.*:count\", \r\nname!~\"org:apache:cassandra:metrics:clientrequest:rangeslice:.*latency:count\", \r\njob=\"cassandra\", environment=\"$env\"}, \"metric\", \"$1\", \"name\", \".*:(.*?):count$\"))[1m]) by (cluster, datacenter, metric) > 0",
+              "instant": false,
+              "legendFormat": "sum - {{metric}}",
+              "range": true,
+              "refId": "sum"
+            }
+          ],
+          "title": "Read range problems count (client requests)",
+          "type": "timeseries"
+        }
+      ],
       "title": "ClientRequest",
       "type": "row"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "showValues": false,
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": 0
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 24,
-        "x": 0,
-        "y": 6
-      },
-      "id": 127,
-      "options": {
-        "legend": {
-          "calcs": [
-            "lastNotNull",
-            "min",
-            "max",
-            "mean"
-          ],
-          "displayMode": "table",
-          "placement": "right",
-          "showLegend": true,
-          "sortBy": "Max",
-          "sortDesc": true
-        },
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "multi",
-          "sort": "desc"
-        }
-      },
-      "pluginVersion": "12.4.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "expr": "avg(cassandra_stats{cluster=\"$cluster\", datacenter=\"$datacenter\", name=\"org:apache:cassandra:metrics:client:connectednativeclients:value\", job=\"cassandra\", environment=\"$env\"}) by (cluster, datacenter) > 0.001",
-          "legendFormat": "avg",
-          "range": true,
-          "refId": "avg"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "expr": "max(cassandra_stats{cluster=\"$cluster\", datacenter=\"$datacenter\", name=\"org:apache:cassandra:metrics:client:connectednativeclients:value\", job=\"cassandra\", environment=\"$env\"}) by (cluster, datacenter) > 0.001",
-          "instant": false,
-          "legendFormat": "top",
-          "range": true,
-          "refId": "top"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "expr": "min(cassandra_stats{cluster=\"$cluster\", datacenter=\"$datacenter\", name=\"org:apache:cassandra:metrics:client:connectednativeclients:value\", job=\"cassandra\", environment=\"$env\"}) by (cluster, datacenter) > 0.001",
-          "instant": false,
-          "legendFormat": "low",
-          "range": true,
-          "refId": "low"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "expr": "sum(cassandra_stats{cluster=\"$cluster\", datacenter=\"$datacenter\", name=\"org:apache:cassandra:metrics:client:connectednativeclients:value\", job=\"cassandra\", environment=\"$env\"}) by (cluster, datacenter) > 0.001",
-          "hide": true,
-          "instant": false,
-          "legendFormat": "sum",
-          "range": true,
-          "refId": "sum"
-        }
-      ],
-      "title": "Native Connection",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "showValues": false,
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": 0
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "µs"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 24,
-        "x": 0,
-        "y": 14
-      },
-      "id": 128,
-      "options": {
-        "legend": {
-          "calcs": [
-            "lastNotNull",
-            "min",
-            "max",
-            "mean"
-          ],
-          "displayMode": "table",
-          "placement": "right",
-          "showLegend": true,
-          "sortBy": "Max",
-          "sortDesc": true
-        },
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "multi",
-          "sort": "desc"
-        }
-      },
-      "pluginVersion": "12.4.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "expr": "label_replace(avg(cassandra_stats{cluster=\"$cluster\", datacenter=\"$datacenter\", name=~\"org:apache:cassandra:metrics:clientrequest:(write|read)-.*:latency:$percentiles\", job=\"cassandra\", environment=\"$env\"}) by(cluster, datacenter, name), \"wrc\", \"$1 : $2\", \"name\", \"org:apache:cassandra:metrics:clientrequest:(write|read)-?(.*):latency.*\") > 0.001",
-          "legendFormat": "avg - {{ wrc }} ",
-          "range": true,
-          "refId": "avg"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "expr": "label_replace(max(cassandra_stats{cluster=\"$cluster\", datacenter=\"$datacenter\", name=~\"org:apache:cassandra:metrics:clientrequest:(write|read)-.*:latency:$percentiles\", job=\"cassandra\", environment=\"$env\"}) by(cluster, datacenter, name), \"wrc\", \"$1 : $2\", \"name\", \"org:apache:cassandra:metrics:clientrequest:(write|read)-?(.*):latency.*\") > 0.001",
-          "instant": false,
-          "legendFormat": "top - {{ wrc }} ",
-          "range": true,
-          "refId": "top"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "expr": "label_replace(min(cassandra_stats{cluster=\"$cluster\", datacenter=\"$datacenter\", name=~\"org:apache:cassandra:metrics:clientrequest:(write|read)-.*:latency:$percentiles\", job=\"cassandra\", environment=\"$env\"}) by(cluster, datacenter, name), \"wrc\", \"$1 : $2\", \"name\", \"org:apache:cassandra:metrics:clientrequest:(write|read)-?(.*):latency.*\") > 0.001",
-          "instant": false,
-          "legendFormat": "low - {{ wrc }} ",
-          "range": true,
-          "refId": "low"
-        }
-      ],
-      "title": "Write/Read latency with consistency (client requests)",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "showValues": false,
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": 0
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 24,
-        "x": 0,
-        "y": 22
-      },
-      "id": 131,
-      "interval": "30",
-      "maxDataPoints": 10000,
-      "options": {
-        "legend": {
-          "calcs": [
-            "lastNotNull",
-            "min",
-            "max",
-            "mean"
-          ],
-          "displayMode": "table",
-          "placement": "right",
-          "showLegend": true,
-          "sortBy": "Max",
-          "sortDesc": true
-        },
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "multi",
-          "sort": "desc"
-        }
-      },
-      "pluginVersion": "12.4.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "expr": "label_replace(avg(rate(cassandra_stats{cluster=\"$cluster\", datacenter=\"$datacenter\", name=~\"org:apache:cassandra:metrics:clientrequest:(write|read)-.*:latency:count\", job=\"cassandra\", environment=\"$env\"})[1m]) by(cluster, datacenter, name), \"wrc\", \"$1 : $2\", \"name\", \"org:apache:cassandra:metrics:clientrequest:(write|read)-?(.*):latency.*\") > 0.001",
-          "legendFormat": "avg - {{ wrc }} ",
-          "range": true,
-          "refId": "avg"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "expr": "label_replace(max(rate(cassandra_stats{cluster=\"$cluster\", datacenter=\"$datacenter\", name=~\"org:apache:cassandra:metrics:clientrequest:(write|read)-.*:latency:count\", job=\"cassandra\", environment=\"$env\"})[1m]) by(cluster, datacenter, name), \"wrc\", \"$1 : $2\", \"name\", \"org:apache:cassandra:metrics:clientrequest:(write|read)-?(.*):latency.*\") > 0.001",
-          "instant": false,
-          "legendFormat": "top - {{ wrc }} ",
-          "range": true,
-          "refId": "top"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "expr": "label_replace(min(rate(cassandra_stats{cluster=\"$cluster\", datacenter=\"$datacenter\", name=~\"org:apache:cassandra:metrics:clientrequest:(write|read)-.*:latency:count\", job=\"cassandra\", environment=\"$env\"})[1m]) by(cluster, datacenter, name), \"wrc\", \"$1 : $2\", \"name\", \"org:apache:cassandra:metrics:clientrequest:(write|read)-?(.*):latency.*\") > 0.001",
-          "instant": false,
-          "legendFormat": "low - {{ wrc }} ",
-          "range": true,
-          "refId": "low"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "expr": "label_replace(sum(rate(cassandra_stats{cluster=\"$cluster\", datacenter=\"$datacenter\", name=~\"org:apache:cassandra:metrics:clientrequest:(write|read)-.*:latency:count\", job=\"cassandra\", environment=\"$env\"})[1m]) by(cluster, datacenter, name), \"wrc\", \"$1 : $2\", \"name\", \"org:apache:cassandra:metrics:clientrequest:(write|read)-?(.*):latency.*\") > 0.001",
-          "hide": true,
-          "instant": false,
-          "legendFormat": "sum - {{ wrc }} ",
-          "range": true,
-          "refId": "sum"
-        }
-      ],
-      "title": "Write/Read count with consistency (client requests)",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "never",
-            "showValues": false,
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "links": [],
-          "mappings": [],
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": 0
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "µs"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 24,
-        "x": 0,
-        "y": 30
-      },
-      "id": 141,
-      "options": {
-        "legend": {
-          "calcs": [
-            "lastNotNull",
-            "min",
-            "max",
-            "mean"
-          ],
-          "displayMode": "table",
-          "placement": "right",
-          "showLegend": true,
-          "sortBy": "Max",
-          "sortDesc": true
-        },
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "multi",
-          "sort": "desc"
-        }
-      },
-      "pluginVersion": "12.4.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "avg(increase(label_replace(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:latency:$percentiles\", job=\"cassandra\", environment=\"$env\"}, \"percentiles\", \"$1\", \"name\", \".*:(.*?)$\"))[1m]) by (cluster, datacenter, name, percentiles) > 0",
-          "format": "time_series",
-          "instant": false,
-          "interval": "",
-          "intervalFactor": 5,
-          "legendFormat": "avg - {{percentiles}}",
-          "refId": "avg"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "expr": "max(increase(label_replace(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:latency:$percentiles\", job=\"cassandra\", environment=\"$env\"}, \"percentiles\", \"$1\", \"name\", \".*:(.*?)$\"))[1m]) by (cluster, datacenter, name, percentiles) > 0",
-          "instant": false,
-          "legendFormat": "top - {{percentiles}}",
-          "range": true,
-          "refId": "top"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "expr": "min(increase(label_replace(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:latency:$percentiles\", job=\"cassandra\", environment=\"$env\"}, \"percentiles\", \"$1\", \"name\", \".*:(.*?)$\"))[1m]) by (cluster, datacenter, name, percentiles) > 0",
-          "instant": false,
-          "legendFormat": "low - {{percentiles}}",
-          "range": true,
-          "refId": "low"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "expr": "sum(increase(label_replace(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:latency:$percentiles\", job=\"cassandra\", environment=\"$env\"}, \"percentiles\", \"$1\", \"name\", \".*:(.*?)$\"))[1m]) by (cluster, datacenter, name, percentiles) > 0",
-          "hide": true,
-          "instant": false,
-          "legendFormat": "sum - {{percentiles}}",
-          "range": true,
-          "refId": "sum"
-        }
-      ],
-      "title": "Read range letency (client requests)",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "log": 2,
-              "type": "log"
-            },
-            "showPoints": "never",
-            "showValues": false,
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "links": [],
-          "mappings": [],
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": 0
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 24,
-        "x": 0,
-        "y": 38
-      },
-      "id": 140,
-      "options": {
-        "legend": {
-          "calcs": [
-            "lastNotNull",
-            "min",
-            "max",
-            "mean"
-          ],
-          "displayMode": "table",
-          "placement": "right",
-          "showLegend": true,
-          "sortBy": "Max",
-          "sortDesc": true
-        },
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "multi",
-          "sort": "desc"
-        }
-      },
-      "pluginVersion": "12.4.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "avg(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:latency:count\", job=\"cassandra\", environment=\"$env\"})[1m]) by (cluster, datacenter, name) > 0",
-          "format": "time_series",
-          "instant": false,
-          "interval": "",
-          "intervalFactor": 5,
-          "legendFormat": "avg",
-          "refId": "avg"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "expr": "max(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:latency:count\", job=\"cassandra\", environment=\"$env\"})[1m]) by (cluster, datacenter, name) > 0",
-          "instant": false,
-          "legendFormat": "top",
-          "range": true,
-          "refId": "top"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "expr": "min(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:latency:count\", job=\"cassandra\", environment=\"$env\"})[1m]) by (cluster, datacenter, name) > 0",
-          "instant": false,
-          "legendFormat": "low",
-          "range": true,
-          "refId": "low"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "expr": "sum(rate(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", name=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:latency:count\", job=\"cassandra\", environment=\"$env\"})[1m]) by (cluster, datacenter, name) > 0",
-          "instant": false,
-          "legendFormat": "sum",
-          "range": true,
-          "refId": "sum"
-        }
-      ],
-      "title": "Read range count (client requests)",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "log": 2,
-              "type": "log"
-            },
-            "showPoints": "never",
-            "showValues": false,
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "links": [],
-          "mappings": [],
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": 0
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 8,
-        "w": 24,
-        "x": 0,
-        "y": 46
-      },
-      "id": 142,
-      "options": {
-        "legend": {
-          "calcs": [
-            "lastNotNull",
-            "min",
-            "max",
-            "mean"
-          ],
-          "displayMode": "table",
-          "placement": "right",
-          "showLegend": true,
-          "sortBy": "Max",
-          "sortDesc": true
-        },
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "multi",
-          "sort": "desc"
-        }
-      },
-      "pluginVersion": "12.4.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "avg(increase(label_replace(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", \r\nname=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:.*:count\", \r\nname!~\"org:apache:cassandra:metrics:clientrequest:rangeslice:.*latency:count\", \r\njob=\"cassandra\", environment=\"$env\"}, \"metric\", \"$1\", \"name\", \".*:(.*?):count$\"))[1m]) by (cluster, datacenter, metric) > 0",
-          "format": "time_series",
-          "instant": false,
-          "interval": "",
-          "intervalFactor": 5,
-          "legendFormat": "avg - {{metric}}",
-          "refId": "avg"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "expr": "max(increase(label_replace(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", \r\nname=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:.*:count\", \r\nname!~\"org:apache:cassandra:metrics:clientrequest:rangeslice:.*latency:count\", \r\njob=\"cassandra\", environment=\"$env\"}, \"metric\", \"$1\", \"name\", \".*:(.*?):count$\"))[1m]) by (cluster, datacenter, metric) > 0",
-          "instant": false,
-          "legendFormat": "top - {{metric}}",
-          "range": true,
-          "refId": "top"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "expr": "min(increase(label_replace(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", \r\nname=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:.*:count\", \r\nname!~\"org:apache:cassandra:metrics:clientrequest:rangeslice:.*latency:count\", \r\njob=\"cassandra\", environment=\"$env\"}, \"metric\", \"$1\", \"name\", \".*:(.*?):count$\"))[1m]) by (cluster, datacenter, metric) > 0",
-          "instant": false,
-          "legendFormat": "low - {{metric}}",
-          "range": true,
-          "refId": "low"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "editorMode": "code",
-          "expr": "sum(increase(label_replace(cassandra_stats{datacenter=\"$datacenter\", cluster=\"$cluster\", \r\nname=~\"org:apache:cassandra:metrics:clientrequest:rangeslice:.*:count\", \r\nname!~\"org:apache:cassandra:metrics:clientrequest:rangeslice:.*latency:count\", \r\njob=\"cassandra\", environment=\"$env\"}, \"metric\", \"$1\", \"name\", \".*:(.*?):count$\"))[1m]) by (cluster, datacenter, metric) > 0",
-          "instant": false,
-          "legendFormat": "sum - {{metric}}",
-          "range": true,
-          "refId": "sum"
-        }
-      ],
-      "title": "Read range problems count (client requests)",
-      "type": "timeseries"
     },
     {
       "collapsed": true,
@@ -1330,7 +1331,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 54
+        "y": 6
       },
       "id": 124,
       "panels": [
@@ -1734,7 +1735,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 55
+        "y": 7
       },
       "id": 100,
       "panels": [
@@ -2719,7 +2720,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 56
+        "y": 8
       },
       "id": 24,
       "panels": [
@@ -3024,7 +3025,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 57
+        "y": 9
       },
       "id": 14,
       "panels": [
@@ -4166,7 +4167,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 58
+        "y": 10
       },
       "id": 139,
       "panels": [
@@ -4467,7 +4468,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 59
+        "y": 11
       },
       "id": 10,
       "panels": [
@@ -5174,7 +5175,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 60
+        "y": 12
       },
       "id": 6,
       "panels": [
@@ -5734,7 +5735,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 61
+        "y": 13
       },
       "id": 20,
       "panels": [
@@ -6487,7 +6488,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 62
+        "y": 14
       },
       "id": 32,
       "panels": [
@@ -7006,7 +7007,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 63
+        "y": 15
       },
       "id": 54,
       "panels": [
@@ -7794,7 +7795,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 64
+        "y": 16
       },
       "id": 60,
       "panels": [
@@ -8104,7 +8105,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 65
+        "y": 17
       },
       "id": 70,
       "panels": [
@@ -8614,7 +8615,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 66
+        "y": 18
       },
       "id": 78,
       "panels": [
@@ -9121,7 +9122,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 67
+        "y": 19
       },
       "id": 135,
       "panels": [
@@ -9427,7 +9428,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 68
+        "y": 20
       },
       "id": 155,
       "panels": [
@@ -9772,7 +9773,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 69
+        "y": 21
       },
       "id": 41,
       "panels": [
@@ -10550,6 +10551,6 @@
   "timezone": "browser",
   "title": "Cassandra DBA (ex CORE) aggregated",
   "uid": "be50l8m4if37kb",
-  "version": 79,
+  "version": 81,
   "weekStart": ""
 }
